@@ -113,6 +113,26 @@ class filter_multilang2_testcase extends advanced_testcase {
             ),
             array (
                 'filterwithlang' => 'es',
+                'before' => '{mlang-es}Bad filter syntax{mlang}',
+                'after'  => '{mlang-es}Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang_es}Bad filter syntax{mlang}',
+                'after'  => '{mlang_es}Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang _es}Este texto está en español{mlang}',
+                'after'  => '',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang -es}Este texto está en español{mlang}',
+                'after'  => '',
+            ),
+            array (
+                'filterwithlang' => 'es',
                 'before' => '{mlang}Bad filter syntax{mlang}{mlang es}Algo de español{mlang}',
                 'after'  => '{mlang}Bad filter syntax{mlang}Algo de español',
             ),
@@ -125,6 +145,86 @@ class filter_multilang2_testcase extends advanced_testcase {
                 'filterwithlang' => 'es',
                 'before' => 'Before {mlang non-existent-language}Some content{mlang} After',
                 'after'  => 'Before  After',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang en,fr,es}Todo el texto está en español{mlang}',
+                'after'  => 'Todo el texto está en español',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang   en   ,      fr,es    }Todo el texto está en español{mlang}',
+                'after'  => 'Todo el texto está en español',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mLaNg   eN   ,      FR,Es    }Todo el texto está en español{mlang}',
+                'after'  => 'Todo el texto está en español',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang   en  ,  ,  ,,,     fr,es,,     ,}Bad filter syntax{mlang}',
+                'after'  => '{mlang   en  ,  ,  ,,,     fr,es,,     ,}Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang   en   ,}Bad filter syntax{mlang}',
+                'after'  => '{mlang   en   ,}Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang   en,     }Bad filter syntax{mlang}',
+                'after'  => '{mlang   en,     }Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang en  ,   }Bad filter syntax{mlang}',
+                'after'  => '{mlang en  ,   }Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang   en,   ,  }Bad filter syntax{mlang}',
+                'after'  => '{mlang   en,   ,  }Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang en,,es}Bad filter syntax{mlang}',
+                'after'  => '{mlang en,,es}Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before'  => '{mlang en  ,,  es  }Bad filter syntax{mlang}',
+                'after'  => '{mlang en  ,,  es  }Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before'  => '{mlang en , , es}Bad filter syntax{mlang}',
+                'after'  => '{mlang en , , es}Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before'  => '{mlang en , , es , }Bad filter syntax{mlang}',
+                'after'   => '{mlang en , , es , }Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang en,es,}Bad filter syntax{mlang}',
+                'after'  => '{mlang en,es,}Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang en , es , }Bad filter syntax{mlang}',
+                'after'  => '{mlang en , es , }Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang,es}Bad filter syntax{mlang}',
+                'after'  => '{mlang,es}Bad filter syntax{mlang}',
+            ),
+            array (
+                'filterwithlang' => 'es',
+                'before' => '{mlang ,es}Bad filter syntax{mlang}',
+                'after'  => '{mlang ,es}Bad filter syntax{mlang}',
             ),
         );
 

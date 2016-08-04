@@ -12,8 +12,14 @@
     {mlang YY}content in language YY{mlang}
   </pre>
   where **XX** and **YY** are the Moodle short names for the language packs
-  (i.e., en, fr, de, etc.)      
+  (i.e., en, fr, de, etc.)
 - Test it (by changing your browsing language in Moodle).
+- 2016.08.04 A new enhanced syntax to be able to specify multiple
+  languages for a single tag is now available. Just specify the list
+  of the languages separated by commas:
+  <pre>
+  {mlang XX,YY,ZZ}Text displayed if current lang is XX, YY or ZZ, or one of their parent laguages.{mlang}
+  </pre>
 
 # How it works #
 - Look for "lang blocks" in the code.
@@ -22,6 +28,8 @@
   - Else, if there exists texts in the current parent language, print them.
   - Else, don't print any text inside the lang block.
 - Text outside of "lang blocks" will always be shown.
+
+Please note that English texts are not used as default anymore!
 
 ## Definition of "lang block" ##
 Is any text (including spaces, tabs, linefeeds or return characters)
