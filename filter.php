@@ -27,8 +27,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- *  Given multilinguage text, return relevant text according to
- *  current language:
+ * Given multilinguage text, return relevant text according to current language.
+ *
+ * The way the filter works is as follows:
  *
  *    - look for multilang blocks in the text.
  *    - if there exists texts in the currently active language, print them.
@@ -48,6 +49,9 @@ defined('MOODLE_INTERNAL') || die();
  *  separated by commas:
  *    {mlang XX,YY,ZZ}Text displayed if current lang is XX, YY or ZZ, or one of their parent laguages.{mlang}
  *
+ * @package    filter_multilang2
+ * @copyright  2015 onwards Iñaki Arenaza & Mondragon Unibertsitatea
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class filter_multilang2 extends moodle_text_filter {
 
