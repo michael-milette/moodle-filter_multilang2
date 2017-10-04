@@ -17,7 +17,8 @@
 /**
  * Multi-language content filter, with simplified syntax.
  *
- * @package    filter_multilang2
+ * @package    core_filters
+ * @subpackage multilang2
  * @copyright  Gaetan Frenoy <gaetan@frenoy.net>
  * @copyright  2004 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
  * @copyright  2015 onwards Iñaki Arenaza & Mondragon Unibertsitatea
@@ -49,7 +50,8 @@ defined('MOODLE_INTERNAL') || die();
  *  separated by commas:
  *    {mlang XX,YY,ZZ}Text displayed if current lang is XX, YY or ZZ, or one of their parent laguages.{mlang}
  *
- * @package    filter_multilang2
+ * @package    core_filters
+ * @subpackage multilang2
  * @copyright  2015 onwards Iñaki Arenaza & Mondragon Unibertsitatea
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
