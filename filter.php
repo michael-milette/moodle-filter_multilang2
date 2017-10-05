@@ -17,8 +17,7 @@
 /**
  * Multi-language content filter, with simplified syntax.
  *
- * @package    core_filters
- * @subpackage multilang2
+ * @package    filter_multilang2
  * @copyright  Gaetan Frenoy <gaetan@frenoy.net>
  * @copyright  2004 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
  * @copyright  2015 onwards Iñaki Arenaza & Mondragon Unibertsitatea
@@ -50,8 +49,7 @@ defined('MOODLE_INTERNAL') || die();
  *  separated by commas:
  *    {mlang XX,YY,ZZ}Text displayed if current lang is XX, YY or ZZ, or one of their parent laguages.{mlang}
  *
- * @package    core_filters
- * @subpackage multilang2
+ * @package    filter_multilang2
  * @copyright  2015 onwards Iñaki Arenaza & Mondragon Unibertsitatea
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -72,11 +70,13 @@ class filter_multilang2 extends moodle_text_filter {
         }
 
         $search = '/{\s*mlang\s+(                               # Look for the leading {mlang
-                                    (?:[a-z0-9_-]+)             # At least one language must be present (but dont capture it individually)
-                                    (?:\s*,\s*[a-z0-9_-]+\s*)*  # More can follow, separated by commas (again dont capture them individually)
-                                )\s*}                           # Capture the language list as a single capture
-                   (.*?)                                        # Now capture the text to be filtered
-                   {\s*mlang\s*}                                # And look for the trailing {mlang}
+                                    (?:[a-z0-9_-]+)             # At least one language must be present
+                                                                # (but dont capture it individually).
+                                    (?:\s*,\s*[a-z0-9_-]+\s*)*  # More can follow, separated by commas
+                                                                # (again dont capture them individually).
+                                )\s*}                           # Capture the language list as a single capture.
+                   (.*?)                                        # Now capture the text to be filtered.
+                   {\s*mlang\s*}                                # And look for the trailing {mlang}.
                    /isx';
         $result = preg_replace_callback($search, 'filter_multilang2::replace_callback', $text);
 
@@ -117,7 +117,7 @@ class filter_multilang2 extends moodle_text_filter {
          */
         $langs = explode(',', str_replace(' ', '', str_replace('-', '_', strtolower($langblock[1]))));
         $text = $langblock[2];
-        foreach($langs as $lang) {
+        foreach ($langs as $lang) {
             /* We don't check for empty values of $lang as they simply don't
              * match any language and they don't produce any errors or warnings.
              */
